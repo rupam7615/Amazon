@@ -1,3 +1,4 @@
+const PORT = process.env.PORT
 const data = require('./data.js');
 const express = require("express");
 let app = express();
@@ -14,7 +15,7 @@ app.use(express.json());
 
 
 // make public folder accessible
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/build'));
 
 
 // globals in node
@@ -49,7 +50,7 @@ app.get("/data", (req, res) => {
 
 /* Listening to 8080  */
 app.listen(8080, () => {
-    console.log("Server is running on port 8080");
+    console.log("Server is running on port PORT");
 })
 
 
