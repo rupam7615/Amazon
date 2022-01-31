@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from "react-router-dom"
 
@@ -40,7 +40,7 @@ export default function Signup() {
             password
         })
         console.log("responceData: ", responceData);
-        if (responceData.data.success == 1) {
+        if (responceData.data.success === 1) {
             // redirect to the home page
             navigate("/");
         } else {
@@ -52,9 +52,12 @@ export default function Signup() {
         <div className='content' style={{ alignItems: "start" }}>
             <div className='form-wrapper'>
                 <img src="/images/logo/logo-white.png" alt="not found" style={{ marginLeft: "auto", marginRight: "auto" }} height="66" width="184" />
-                {error && <div style={{ color: "red", border: "1px solid red" }}>
-                    {error}
-                </div>}
+                {
+                    error &&
+                    <div className='error'>
+                        {error}
+                    </div>
+                }
                 <div className="inner-form-wrapper">
                     <div className="form-ele signin">
                         <label className='signin'>Create Account</label>
